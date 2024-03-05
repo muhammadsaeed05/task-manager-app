@@ -19,7 +19,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       required this.deleteTaskUseCase})
       : super(TaskInitial()) {
     on<LoadTasksEvent>((event, emit) {
-      _mapLoadTaskEventToState(emit);
+      _mapLoadTaskEventToState(event, emit);
     });
 
     on<AddTaskEvent>(((event, emit) {
@@ -50,7 +50,8 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     }
   }
 
-  void _mapLoadTaskEventToState(Emitter<TaskState> emit) {
+  void _mapLoadTaskEventToState(LoadTasksEvent event, Emitter<TaskState> emit) {
+    print("Hello");
     emit(LoadingState());
     try {
       final tasks = getTasksUseCase();
