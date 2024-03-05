@@ -7,9 +7,9 @@ class TaskDataSource {
   // Initialize with dummy data
   TaskDataSource() {
     tasks = [
-      const Task(id: 1, title: 'Task 1'),
-      const Task(id: 2, title: 'Task 2'),
-      const Task(id: 3, title: 'Task 3'),
+      Task(id: 1, title: 'Task 1', submissionDate: DateTime.now()),
+      Task(id: 2, title: 'Task 2', submissionDate: DateTime.now()),
+      Task(id: 3, title: 'Task 3', submissionDate: DateTime.now()),
     ];
   }
 
