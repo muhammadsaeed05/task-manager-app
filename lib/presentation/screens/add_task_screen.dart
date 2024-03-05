@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_management_app/di/get_it.dart';
 import 'package:task_management_app/domain/entities/task_entity.dart';
 import 'package:task_management_app/presentation/bloc/task/task_bloc.dart';
-import 'package:task_management_app/presentation/theme/theme.dart';
 
 class AddTaskScreen extends StatefulWidget {
   @override
