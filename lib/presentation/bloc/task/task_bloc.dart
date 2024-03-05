@@ -8,16 +8,18 @@ import 'package:task_management_app/domain/usecases/get_task_usecase.dart';
 part 'task_event.dart';
 part 'task_state.dart';
 
+/// BLoC (Business Logic Component) responsible for managing tasks.
 class TaskBloc extends Bloc<TaskEvent, TaskState> {
   final GetTasksUseCase getTasksUseCase;
   final AddTaskUseCase addTaskUseCase;
   final DeleteTaskUseCase deleteTaskUseCase;
 
-  TaskBloc(
-      {required this.getTasksUseCase,
-      required this.addTaskUseCase,
-      required this.deleteTaskUseCase})
-      : super(TaskInitial()) {
+  /// Constructor for TaskBloc.
+  TaskBloc({
+    required this.getTasksUseCase,
+    required this.addTaskUseCase,
+    required this.deleteTaskUseCase,
+  }) : super(TaskInitial()) {
     on<LoadTasksEvent>((event, emit) {
       _mapLoadTaskEventToState(event, emit);
     });
@@ -31,6 +33,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     });
   }
 
+  /// Maps the [RemoveTaskEvent] to the appropriate [TaskState].
   void _mapRemoveTaskEventToState(
       RemoveTaskEvent event, Emitter<TaskState> emit) {
     try {
@@ -41,6 +44,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     }
   }
 
+  /// Maps the [AddTaskEvent] to the appropriate [TaskState].
   void _mapAddTaskEventToState(AddTaskEvent event, Emitter<TaskState> emit) {
     try {
       addTaskUseCase(event.task);
@@ -50,11 +54,11 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     }
   }
 
+  /// Maps the [LoadTasksEvent] to the appropriate [TaskState].
   void _mapLoadTaskEventToState(LoadTasksEvent event, Emitter<TaskState> emit) {
     emit(LoadingState());
     try {
       final tasks = getTasksUseCase();
-
       emit(TasksLoadedState(tasks));
     } catch (e) {
       emit(const TaskErrorState("Failed to load tasks"));
