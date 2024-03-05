@@ -3,7 +3,7 @@ import 'package:task_management_app/domain/usecases/delete_task_usecase.dart';
 
 import 'package:mockito/mockito.dart';
 
-import 'get_task_usecase_test.mocks.dart';
+import '../repositories/task_repository_mock.mocks.dart';
 
 void main() {
   group('DeleteTaskUseCase', () {

@@ -51,7 +51,6 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
   }
 
   void _mapLoadTaskEventToState(LoadTasksEvent event, Emitter<TaskState> emit) {
-    print("Hello");
     emit(LoadingState());
     try {
       final tasks = getTasksUseCase();

@@ -3,7 +3,7 @@ import 'package:mockito/mockito.dart';
 import 'package:task_management_app/domain/entities/task_entity.dart';
 import 'package:task_management_app/domain/usecases/add_task_usecase.dart';
 
-import 'get_task_usecase_test.mocks.dart';
+import '../repositories/task_repository_mock.mocks.dart';
 
 void main() {
   group('AddTaskUseCase', () {

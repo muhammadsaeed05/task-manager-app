@@ -1,14 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:task_management_app/domain/entities/task_entity.dart';
-import 'package:task_management_app/domain/repository/task_repository.dart';
 import 'package:task_management_app/domain/usecases/get_task_usecase.dart';
+import '../repositories/task_repository_mock.mocks.dart';
 
-import 'get_task_usecase_test.mocks.dart';
+// import 'get_task_usecase_test.mocks.dart';
 
 // class MockTaskRepository extends Mock implements TaskRepositoryImpl {}
-@GenerateNiceMocks([MockSpec<TaskRepository>()])
+// @GenerateNiceMocks([MockSpec<TaskRepository>()])
 void main() {
   group('GetTasksUseCase', () {
     late MockTaskRepository mockTaskRepository;
